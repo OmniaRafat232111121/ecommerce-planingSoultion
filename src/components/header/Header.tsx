@@ -7,10 +7,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { SlLocationPin } from "react-icons/sl";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
-import { stateProps } from '../../../type';
+import { StateProps } from '../../../type';
 
 const Header = () => {
-  const { productData, favoriteData } = useSelector((state: stateProps) => state.next)
+  const { productData, favoriteData } = useSelector((state: StateProps) => state.next)
   console.log(productData)
   console.log("this is favourit", favoriteData)
   return (

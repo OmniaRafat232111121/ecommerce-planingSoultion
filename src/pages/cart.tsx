@@ -1,14 +1,13 @@
 import React from 'react'
-import { StoreProduct, stateProps } from '../../type'
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
+import { StoreProduct, StateProps } from '../../type'
 import Link from 'next/link';
 import CartProduct from '@/components/CartProduct';
 import ResetCart from '@/components/ResetCart';
 import CartPayemenet from '@/components/CartPayemenet';
 import Head from 'next/head';
-
-const cart = () => {
-  const { productData } = useSelector((state: stateProps) => state.next);
+const Cart = () => {
+  const { productData } = useSelector((state: StateProps) => state.next);
 
   return (
     <>
@@ -57,4 +56,4 @@ const cart = () => {
   )
 }
 
-export default cart
+export default Cart

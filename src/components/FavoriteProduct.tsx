@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import FormattedPrice from "./FormattedPrice";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/nextSlice";
+import { addToCart, deleteFavorite } from "@/store/nextSlice";
 interface Item {
     _id: number;
     brand: string;

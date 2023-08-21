@@ -21,7 +21,7 @@ export interface ProductProps {
     _id: number;
     quantity: number;
   }
-  export interface stateProps{
+  export interface StateProps{
     productData:[];
     favoriteData: [];
     allProducts: [];

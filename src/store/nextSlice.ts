@@ -48,6 +48,11 @@ export const nextSlice = createSlice({
               (product) => product._id !== productId
             );
           },
+          deleteFavorite: (state, action) => {
+            state.favoriteData = state.favoriteData.filter(
+              (item) => item._id !== action.payload
+            );
+          },
           increaseQuantity: (state, action) => {
             const existingProduct = state.productData.find(
               (item: StoreProduct) => item._id === action.payload._id
@@ -79,6 +84,6 @@ export const nextSlice = createSlice({
 
     }
 })
-export const {addToCart , addToFavorite, removeFromFavorite,
+export const {addToCart , addToFavorite, removeFromFavorite,deleteFavorite,
    increaseQuantity,decreaseQuantity,deleteProduct,resetCart,resetFavoriteData}=nextSlice.actions;
 export default nextSlice.reducer;

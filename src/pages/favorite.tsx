@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { StoreProduct, stateProps } from "../../type";
+import { StoreProduct, StateProps } from "../../type";
 import Link from "next/link";
 import FavoriteProduct from "@/components/FavoriteProduct";
 import ResetFavoriteItems from "@/components/resetFavorite";
 import Head from "next/head";
-const favorite = () => {
-    const { favoriteData } = useSelector((state: stateProps) => state.next);
+const Favorite = () => {
+    const { favoriteData } = useSelector((state: StateProps) => state.next);
     console.log(favoriteData)
     return (
         <>
@@ -52,4 +52,4 @@ const favorite = () => {
     )
 }
 
-export default favorite
+export default Favorite
