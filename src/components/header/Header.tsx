@@ -67,13 +67,13 @@ const Header = () => {
         </Link>
 
         {/*cart*/}
-        <Link href={'/cart'} className="text-xs text-gray-100 flex items-center px-2 border border-transparent hover:border-white 
+        <Link href={'/cart'} className="text-xs text-gray-100 flex items-center px-3 border border-transparent
+         hover:border-white 
         cursor-pointer duration-300 h-[70%] realtive"
         >
           <Image src={cartIcon} alt="cartimg" className='w-auto object-cover h-8' />
-          <p className='text-xs text-white font-bold mt-3'>Cart</p>
           <span className='absolute
-           text-amazon_yellow text-sm top-[14px] right-[63px] font-semibold
+           text-amazon_yellow text-sm top-[18px] right-[40px] 
             bg-white rounded-md px-1'>
             {productData ? productData.length : 0}
           </span>
