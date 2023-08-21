@@ -19,9 +19,11 @@ const Header = () => {
   const [filterProduct, setFilterProduct] = useState("")
 
   return (
-    <div className='w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50'>
+    <div className='w-full
+    sm:max-w-screen-2xl
+     h-20 bg-amazon_blue text-lightText sticky top-0 z-50'>
       <div className='h-full w-full inline-flex items-center justify-between  gap-1 
-      mdl:gap-4 px-4'>
+      mdl:gap-4 px-4 '>
         {/*logo*/}
         <Link
           href={"/"}

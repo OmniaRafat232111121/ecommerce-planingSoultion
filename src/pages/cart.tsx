@@ -15,18 +15,21 @@ const Cart = () => {
         <title>Cart Details</title>
         <meta name="description" content="This is details of product" />
       </Head>
-      <div className="max-w-screen-2xl mx-auto px-6 
-      grid xl:grid-cols-5 md:grid-cols-3  gap-10 py-4">
+      <div className="max-w-screen-xl 
+            mx-auto xl:px-6 gap-10 xl:py-4 md:px-1 grid xl:grid-cols-2 md:grid-cols-3
+            ">
         {productData.length > 0 ? (
           <>
-            <div className="bg-white sm:w-[100%]  col-span-2 p-4 rounded-lg">
+            <div className="bg-white p-4 rounded-lg">
               <div className="flex items-center justify-between border-b-[1px] border-b-gray-400 pb-1">
+
                 <p className="text-2xl font-semibold text-amazon_blue">
-                  Shopping Cart
+                  shopping Items
                 </p>
-                <p className="text-lg font-semibold text-amazon_blue">Subtitle</p>
+                <p className="text-lg font-semibold text-amazon_blue">Action</p>
               </div>
-              <div className="pt-2 flex flex-col gap-2">
+              <div className="pt-2 
+              flex flex-col gap-2">
                 {productData.map((item: StoreProduct) => (
                   <div key={item._id}>
                     <CartProduct item={item} />

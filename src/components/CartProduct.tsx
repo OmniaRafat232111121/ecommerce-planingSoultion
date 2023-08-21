@@ -1,10 +1,14 @@
-import Image from 'next/image';
-import React from 'react'
-import { useDispatch } from "react-redux";
-import FormattedPrice from './FormattedPrice';
-import { LuMinus, LuPlus } from 'react-icons/lu';
+import Image from "next/image";
+import React from "react";
+import FormattedPrice from "./FormattedPrice";
+import { LuMinus, LuPlus } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
-import { decreaseQuantity, deleteProduct, increaseQuantity } from '@/store/nextSlice';
+import { useDispatch } from "react-redux";
+import {
+    decreaseQuantity,
+    deleteProduct,
+    increaseQuantity,
+} from "@/store/nextSlice";
 interface Item {
     brand: string;
     category: string;
@@ -20,11 +24,13 @@ interface Item {
 interface cartProductsProps {
     item: Item;
 }
+
 const CartProduct = ({ item }: cartProductsProps) => {
     const dispatch = useDispatch();
-
     return (
-        <div className='bg-gray-100 rounded-lg flex items-center gap-4 sm:p-5 '>
+        <div className="bg-gray-100 
+        rounded-lg flex flex-col md:flex-row py-2 
+        items-center gap-4 mb-2">
             <Image
                 className="object-cover"
                 width={150}
@@ -32,19 +38,18 @@ const CartProduct = ({ item }: cartProductsProps) => {
                 src={item.image}
                 alt="productImage"
             />
-            <div className='flex items-center px-2 gap-4'>
-                <div className='flex flex-col gap-1'>
+            <div className="flex items-center px-2 gap-4">
+                <div className="flex flex-col gap-1">
                     <p className="text-lg font-semibold text-amazon_blue">{item.title}</p>
                     <p className="text-sm text-gray-600">{item.description}</p>
                     <p className="text-sm text-gray-600">
-                        Unit Price {" "}
+                        Unit Price{" "}
                         <span className="font-semibold text-amazon_blue">
                             <FormattedPrice amount={item.price} />
                         </span>
                     </p>
-                    <div className='flex items-center justify-between gap-6'>
+                    <div className="flex items-center gap-6">
                         <div className="flex items-center mt-1 justify-between border border-gray-300 px-4 py-1 rounded-full w-28 shadow-lg shadow-gray-300">
-
                             <span
                                 onClick={() =>
                                     dispatch(
@@ -66,7 +71,7 @@ const CartProduct = ({ item }: cartProductsProps) => {
                             >
                                 <LuPlus />
                             </span>
-                            <span className='sm:text-sm text-gray-900'>{item.quantity}</span>
+                            <span>{item.quantity}</span>
                             <span
                                 onClick={() =>
                                     dispatch(
@@ -91,25 +96,18 @@ const CartProduct = ({ item }: cartProductsProps) => {
                         </div>
                         <div
                             onClick={() => dispatch(deleteProduct(item._id))}
-                            className="flex items-center text-sm font-medium
-                             text-gray-400 hover:text-red-600 
-                             cursor-pointer duration-300 bg-white p-2 shadow-md rounded-full"
-
-
+                            className="flex items-center text-sm font-medium text-gray-400 hover:text-red-600 cursor-pointer duration-300"
                         >
                             <IoMdClose className="mt-[2px]" /> <p>remove</p>
                         </div>
                     </div>
                 </div>
-                <div className="md:text-lg font-semibold text-amazon_blue sm:text-xs sm:ml-[-30px]  ">
+                <div className="text-lg font-semibold text-amazon_blue">
                     <FormattedPrice amount={item.price * item.quantity} />
                 </div>
-
-
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default CartProduct
+export default CartProduct;

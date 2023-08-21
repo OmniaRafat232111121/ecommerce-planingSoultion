@@ -22,7 +22,9 @@ interface cartProductProps {
 const FavoriteProduct = ({ item }: cartProductProps) => {
     const dispatch = useDispatch();
     return (
-        <div className="bg-gray-100 rounded-lg flex flex-col md:flex-row py-2 items-center gap-4 mb-2">
+        <div className="bg-gray-100 
+        rounded-lg flex flex-col md:flex-row py-2 
+        items-center gap-4 mb-2">
             <Image src={item.image} alt="Product image" width={150} height={150} />
             <div className="flex items-center px-2 gap-4">
                 <div className="flex flex-col gap-1">

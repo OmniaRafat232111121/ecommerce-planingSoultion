@@ -14,10 +14,12 @@ const Favorite = () => {
                 <title> Favourit Details</title>
                 <meta name="description" content="This is favourits products" />
             </Head>
-            <div className="max-w-screen-xl mx-auto px-6 gap-10 py-4">
+            <div className="max-w-screen-xl 
+            mx-auto px-6 gap-10 py-4">
                 {favoriteData.length > 0 ? (
                     <div className="bg-white p-4 rounded-lg">
                         <div className="flex items-center justify-between border-b-[1px] border-b-gray-400 pb-1">
+
                             <p className="text-2xl font-semibold text-amazon_blue">
                                 Favorte Items
                             </p>
