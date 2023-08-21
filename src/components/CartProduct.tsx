@@ -101,7 +101,7 @@ const CartProduct = ({ item }: cartProductsProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="md:text-lg font-semibold text-amazon_blue sm:text-sm  ">
+                <div className="md:text-lg font-semibold text-amazon_blue sm:text-xs sm:ml-[-30px]  ">
                     <FormattedPrice amount={item.price * item.quantity} />
                 </div>
 
