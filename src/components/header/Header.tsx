@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../../images/logo.png'
 import cartIcon from "../../images/cartIcon.png";
 import Image from 'next/image'
@@ -13,6 +13,11 @@ const Header = () => {
   const { productData, favoriteData } = useSelector((state: StateProps) => state.next)
   console.log(productData)
   console.log("this is favourit", favoriteData)
+
+  //serach bar
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterProduct, setFilterProduct] = useState("")
+
   return (
     <div className='w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50'>
       <div className='h-full w-full inline-flex items-center justify-between gap-1 
@@ -36,7 +41,7 @@ const Header = () => {
           <input type="text"
             className="w-full h-full rounded-md px-2 placeholder:text-sm text-base text-black border-[3px] border-transparent outline-none focus-visible:border-amazon_yellow"
 
-            placeholder='Search in Planing Soultion' />
+            placeholder='Search products in Planing Soultion' />
           <span className="w-12 h-full bg-amazon_yellow text-black text-2xl flex items-center justify-center absolute right-0 rounded-tr-md rounded-br-md">
             <HiOutlineSearch />
           </span>

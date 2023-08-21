@@ -24,7 +24,7 @@ const CartProduct = ({ item }: cartProductsProps) => {
     const dispatch = useDispatch();
 
     return (
-        <div className='bg-gray-100 rounded-lg flex items-center gap-4'>
+        <div className='bg-gray-100 rounded-lg flex items-center gap-4 sm:p-5 '>
             <Image
                 className="object-cover"
                 width={150}
@@ -66,7 +66,7 @@ const CartProduct = ({ item }: cartProductsProps) => {
                             >
                                 <LuPlus />
                             </span>
-                            <span>{item.quantity}</span>
+                            <span className='sm:text-sm text-gray-900'>{item.quantity}</span>
                             <span
                                 onClick={() =>
                                     dispatch(
@@ -101,7 +101,7 @@ const CartProduct = ({ item }: cartProductsProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="text-lg font-semibold text-amazon_blue">
+                <div className="md:text-lg font-semibold text-amazon_blue sm:text-sm  ">
                     <FormattedPrice amount={item.price * item.quantity} />
                 </div>
 
