@@ -8,7 +8,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
 import { StateProps } from '../../../type';
-
+import { MdOutlineFavorite } from "react-icons/md";
 const Header = () => {
   const { productData, favoriteData } = useSelector((state: StateProps) => state.next)
   console.log(productData)
@@ -46,27 +46,18 @@ const Header = () => {
             <HiOutlineSearch />
           </span>
         </div>
-        {/*sign in*/}
-        <div
-          className="text-xs text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]"
 
-        >
-          <p>Hello, sign in</p>
-          <p className="text-white font-bold flex items-center">Account & Lists{" "}
-            <span>
-              <BiCaretDown />
-
-            </span>
-          </p>
-        </div>
         {/*favourit*/}
         <Link href={"/favorite"}
-          className="text-xs text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative">
-          <p>Marked</p>
-          <p className="text-white font-bold ">& favourit</p>
+          className="text-xs text-gray-100 flex flex-col justify-center px-3 border
+           border-transparent hover:border-white cursor-pointer duration-300 h-[70%]
+            relative">
+
+          <MdOutlineFavorite size={20} />
           {favoriteData.length > 0 && (
-            <span className="absolute p-1 right-1 top-2 w-5 h-5 border-[1px]
-             border-gray-400 flex items-center justify-center text-xs text-amazon_yellow bg-white rounded-sm">
+            <span className="absolute p-1 left-[20px] top-1 w-5 h-5 bg-white rounded-md 
+             flex items-center 
+             justify-center text-xs  text-amazon_yellow">
 
               {favoriteData.length}</span>
           )}
@@ -79,7 +70,9 @@ const Header = () => {
         >
           <Image src={cartIcon} alt="cartimg" className='w-auto object-cover h-8' />
           <p className='text-xs text-white font-bold mt-3'>Cart</p>
-          <span className='absolute text-amazon_yellow text-sm top-[14px] right-[60px] font-semibold bg-white rounded-sm px-1'>
+          <span className='absolute
+           text-amazon_yellow text-sm top-[14px] right-[63px] font-semibold
+            bg-white rounded-md px-1'>
             {productData ? productData.length : 0}
           </span>
         </Link>
