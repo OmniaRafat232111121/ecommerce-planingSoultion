@@ -55,7 +55,7 @@ const Header = () => {
            border-transparent hover:border-white cursor-pointer duration-300 h-[70%]
             relative">
 
-          <MdOutlineFavorite size={20} />
+          <MdOutlineFavorite size={26} />
           {favoriteData.length > 0 && (
             <span className="absolute p-1 left-[20px] top-1 w-5 h-5 bg-white rounded-md 
              flex items-center 
