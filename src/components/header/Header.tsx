@@ -9,6 +9,7 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { StateProps, StoreProduct } from '../../../type';
 import { MdOutlineFavorite } from "react-icons/md";
 import SearchProducts from '../SearchProducts';
+import axios from 'axios';
 const Header = () => {
   const { productData, favoriteData } = useSelector((state: StateProps) => state.next
   );
@@ -17,19 +18,29 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState(""); // User input for search
   const [filteredProducts, setFilteredProducts] = useState([]); // Filtered products based on search
   const [allData, setAllData] = useState([]); // All products data
+  useEffect(() => {
+    // Fetch data from the provided URL
+    axios.get('https://fakestoreapiserver.reactbd.com/tech')
+      .then(response => {
+        // Once data is fetched, update the allData state
+        setAllData(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
   useEffect(() => {
-    console.log("Search query:", searchQuery);
-    console.log("All data:", allData);
-
     const filtered = allData.filter((item: StoreProduct) =>
       item.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     console.log("Filtered data:", filtered);
+    console.log("Search query:", searchQuery);
+    console.log("All data:", allData);
 
     setFilteredProducts(filtered);
   }, [searchQuery, allData]);
