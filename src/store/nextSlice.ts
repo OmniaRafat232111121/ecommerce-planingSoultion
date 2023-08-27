@@ -80,10 +80,17 @@ export const nextSlice = createSlice({
           resetFavoriteData: (state) => {
             state.favoriteData = [];
           },
+          addUser: (state, action) => {
+            state.userInfo = action.payload;
+          },
+          removeUser: (state) => {
+            state.userInfo = null;
+          },
         
 
     }
 })
 export const {addToCart , addToFavorite, removeFromFavorite,deleteFavorite,
+  addUser,removeUser,
    increaseQuantity,decreaseQuantity,deleteProduct,resetCart,resetFavoriteData}=nextSlice.actions;
 export default nextSlice.reducer;

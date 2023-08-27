@@ -10,10 +10,29 @@ import { StateProps, StoreProduct } from '../../../type';
 import { MdOutlineFavorite } from "react-icons/md";
 import SearchProducts from '../SearchProducts';
 import axios from 'axios';
-const Header = () => {
-  const { productData, favoriteData } = useSelector((state: StateProps) => state.next
-  );
+import { useSession, signIn, signOut } from "next-auth/react"
+import { BiCaretDown } from 'react-icons/bi'
+import { addUser } from '@/store/nextSlice';
 
+const Header = () => {
+  const { data: session, status } = useSession()
+  console.log(session)
+
+  const { productData, favoriteData, userInfo } = useSelector((state: StateProps) => state.next
+  );
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (session) {
+      dispatch(
+        addUser({
+          name: session?.user?.name,
+          image: session?.user?.image,
+          email: session?.user?.email,
+
+        })
+      )
+    }
+  }, [session])
   //serach bar
   const [searchQuery, setSearchQuery] = useState(""); // User input for search
   const [filteredProducts, setFilteredProducts] = useState([]); // Filtered products based on search
@@ -133,6 +152,37 @@ const Header = () => {
           )}
 
         </Link>
+        {userInfo ? (
+          <>
+            <div className="flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] gap-1">
+              <Image
+                src={userInfo.image}
+                alt="userImage"
+                className="w-8 h-8 rounded-full object-cover"
+                width={50}
+                height={50}
+
+              />
+              <div className="text-xs text-gray-100 flex flex-col justify-between">
+                <p className="text-white font-bold">{userInfo.name}</p>
+                <p>{userInfo.email}</p>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div
+            onClick={() => signIn()}
+            className="text-xs text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]"
+          >
+            <p>Hello, sign in</p>
+            <p className="text-white font-bold flex items-center">
+              Account & Lists{" "}
+              <span>
+                <BiCaretDown />
+              </span>
+            </p>
+          </div>
+        )}
 
         {/*cart*/}
         <Link href={'/cart'} className="text-xs text-gray-100 flex items-center px-3 border border-transparent
