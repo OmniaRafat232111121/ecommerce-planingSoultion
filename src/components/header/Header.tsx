@@ -13,8 +13,12 @@ import axios from 'axios';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { BiCaretDown } from 'react-icons/bi'
 import { addUser } from '@/store/nextSlice';
+import { useTranslation } from 'next-i18next';
+import LanguageToggle from '../LanaguageToggle';
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const { data: session, status } = useSession()
   console.log(session)
 
@@ -64,8 +68,8 @@ const Header = () => {
     setFilteredProducts(filtered);
   }, [searchQuery, allData]);
   return (
-    <div className='w-full
-    sm:max-w-screen-2xl
+    <div className='
+    
      h-20 bg-amazon_blue text-lightText sticky top-0 z-50'>
       <div className='h-full w-full inline-flex items-center justify-between  gap-1 
       mdl:gap-4 px-4 '>
@@ -79,7 +83,7 @@ const Header = () => {
         <div className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 items-center justify-center h-[70%] hidden xl:inline-flex gap-1">
           <SlLocationPin />
           <div className="text-xs">
-            <p>Deliver to</p>
+            <p>{t('deliverTo')}</p>
             <p className="text-white font-bold uppercase">EGYPT</p>
           </div>
         </div>
@@ -183,7 +187,7 @@ const Header = () => {
             </p>
           </div>
         )}
-
+        <LanguageToggle />
         {/*cart*/}
         <Link href={'/cart'} className="text-xs text-gray-100 flex items-center px-3 border border-transparent
          hover:border-white 

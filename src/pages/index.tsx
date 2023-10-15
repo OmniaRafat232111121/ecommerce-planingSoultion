@@ -3,6 +3,7 @@ import Products from '@/components/Products'
 import { Inter } from 'next/font/google'
 import { ProductProps } from '../../type'
 import Head from 'next/head';
+import FacebookMsg from '@/components/FacebookMsg';
 
 const inter = Inter({ subsets: ['latin'] })
 interface Props {
@@ -23,6 +24,7 @@ export default function Home({ productData }: Props) {
           <Products productData={productData} />
         </div>
       </div>
+      <FacebookMsg/>
     </main>
   )
 }

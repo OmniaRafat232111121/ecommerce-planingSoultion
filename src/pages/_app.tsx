@@ -7,7 +7,9 @@ import { Provider } from 'react-redux'
 import { persistor } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { SessionProvider } from "next-auth/react"
-export default function App({ Component,
+import { appWithTranslation } from 'next-i18next';
+
+function App({ Component,
   pageProps: { session, ...pageProps }
 }: AppProps) {
   return (
@@ -24,3 +26,6 @@ export default function App({ Component,
     </Provider>
   )
 }
+
+
+export default appWithTranslation(App);
